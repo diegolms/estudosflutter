@@ -4,12 +4,21 @@ import 'package:hello_world/pages/home_page.dart';
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
   @override
-  _LoginPageState crAeateState() => _LoginPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+
+    final logo = Hero(
+      tag: 'hero',
+      child: CircleAvatar(
+        backgroundColor: Colors.white,
+        radius: 48.0,
+        child: Image.asset('assets/logo.png'),
+      ),
+    );
 
     final email = TextFormField(
       keyboardType: TextInputType.emailAddress,
@@ -18,6 +27,9 @@ class _LoginPageState extends State<LoginPage> {
         hintText: 'Email',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+        hintStyle: TextStyle(
+          color: Colors.white,
+        ),
       ),
     );
 
@@ -25,9 +37,12 @@ class _LoginPageState extends State<LoginPage> {
       autofocus: false,
       obscureText: true,
       decoration: InputDecoration(
-        hintText: 'Password',
+        hintText: 'Senha',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+        hintStyle: TextStyle(
+          color: Colors.white,
+        ),
       ),
     );
 
@@ -48,20 +63,20 @@ class _LoginPageState extends State<LoginPage> {
 
     final forgotLabel = FlatButton(
       child: Text(
-        'Forgot password?',
-        style: TextStyle(color: Colors.black54),
+        'Esqueceu sua senha?',
+        style: TextStyle(color: Colors.white),
       ),
       onPressed: () {},
     );
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       body: Center(
         child: ListView(
           shrinkWrap: true,
           padding: EdgeInsets.only(left: 24.0, right: 24.0),
           children: <Widget>[
-            logo,
+            //logo,
             SizedBox(height: 48.0),
             email,
             SizedBox(height: 8.0),
